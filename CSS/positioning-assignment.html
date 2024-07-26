@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    section.wrapper{        
+        width: 35vw;
+        height: 100vh;
+        margin-inline: auto;
+        position: relative;
+    }
+    .big-div{
+        width: 100%;
+        height: 100px;        
+    }
+    .big-div:nth-child(1){
+        background-color: red;
+        position: absolute;
+        top: 0;
+    }
+    .big-div:nth-child(2){
+        background-color: blue;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .small-div{
+        width: 150px;
+        height: 150px;        
+    }
+    .small-div.green{
+        background-color: green !important;
+        position: absolute;
+        z-index: 100;        
+    }
+    .green-1{
+        top: 120px;
+        left: 50px;
+    }
+    .green-2{
+        top: 120px;
+        right: 50px;
+    }
+    .yellow{
+        background-color: yellow;
+        position: absolute;
+        z-index: 100;  
+    }
+    .yellow-1{
+        bottom: 120px;
+        left: 50px;
+    }
+    .yellow-2{
+        bottom: 120px;
+        right: 50px;
+    }   
+</style>
+<body>
+    <section class="wrapper">
+        <div class="big-div"></div>
+        <div class="big-div"></div>
+        <div class="small-div green green-1"></div>
+        <div class="small-div yellow yellow-1"></div>
+        <div class="small-div green green-2"></div>
+        <div class="small-div yellow yellow-2"></div>
+    </section>
+</body>
+</html>
