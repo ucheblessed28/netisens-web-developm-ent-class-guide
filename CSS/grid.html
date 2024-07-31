@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            /* grid-template-rows: 1fr 4fr 1fr; */
+            /* gap: 10px; */
+            row-gap: 10px;
+            column-gap: 20px;
+        }
+        .parent div{
+            background-color: aqua;
+            height: 150px;
+            font-size: 50px;
+            display: grid;
+            /* place-items: center; */
+            align-items: center;
+            justify-content: center;
+        }
+        .parent div:nth-child(1){
+            background-color: black;
+            color: white;
+            /* grid-column: span 2; */
+            /* grid-column-start: 1;
+            grid-column-end: 3; */
+            grid-column: 1/3;
+        }
+        .parent div:nth-child(2){
+            background-color: blue;
+            color: white;
+            grid-column: 3/4;
+            grid-row: 1/4;
+            height: unset;
+
+        }
+        .parent div:nth-child(3){
+            background-color: purple;
+            color: white;
+        }
+        .parent div:nth-child(4){
+            background-color: orange;
+            color: white;
+        }
+        .parent div:nth-child(5){
+            background-color: rgb(77, 255, 0);
+            color: white;
+        }
+        .parent div:nth-child(6){
+            background-color: rgb(255, 0, 123);
+            color: white;
+            grid-column: 2/3;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <!-- <div>7</div>
+        <div>8</div>
+        <div>9</div> -->
+    </div>
+</body>
+</html>
