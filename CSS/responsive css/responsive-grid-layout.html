@@ -59,9 +59,17 @@
     </div>    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const bodyWidth = window.innerWidth;
             const h1 = document.querySelector('h1');
-            h1.textContent = `Current screen width: ${bodyWidth}px`;
+            const updateScreenWidth = () => {
+                const bodyWidth = window.innerWidth;
+                h1.textContent = `Current screen width: ${bodyWidth}px`;
+            };
+            
+            // Initial call to set the width on page load
+            updateScreenWidth();
+            
+            // Add event listener for resize event
+            window.addEventListener('resize', updateScreenWidth);
         });
     </script>
 </body>
