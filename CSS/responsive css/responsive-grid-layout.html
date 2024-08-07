@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Base styles for desktop */
+.container-grid,
+.container-flex {
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.grid-item,
+.flex-item {
+    margin: 5px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Grid container */
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Flex container */
+.container-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    flex: 1 1 30%;
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 768px) {
+    .container-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .flex-item {
+        flex: 1 1 45%;
+    }
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 480px) {
+    .container-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flex-item {
+        flex: 1 1 100%;
+    }
+}
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <div class="container-grid">
+        <div class="grid-item">Grid 1</div>
+        <div class="grid-item">Grid 2</div>
+        <div class="grid-item">Grid 3</div>
+        <div class="grid-item">Grid 4</div>
+        <div class="grid-item">Grid 5</div>
+        <div class="grid-item">Grid 6</div>
+        <div class="grid-item">Grid 7</div>
+        <div class="grid-item">Grid 8</div>
+        <div class="grid-item">Grid 9</div>
+    </div>    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bodyWidth = window.innerWidth;
+            const h1 = document.querySelector('h1');
+            h1.textContent = `Current screen width: ${bodyWidth}px`;
+        });
+    </script>
+</body>
+</html>
