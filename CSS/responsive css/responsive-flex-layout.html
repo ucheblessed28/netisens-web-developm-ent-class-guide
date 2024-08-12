@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-         /* Base styles for desktop */
-
+         /* Desktop first  approach*/
         .container-flex {
             margin: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid red;
             padding: 10px;
             display: flex;
             flex-wrap: wrap;
-        }        
+            background-color: yellow;
+        }  
+        
         .flex-item {
             margin: 5px;
             padding: 10px;
             background-color: #f4f4f4;
             border: 1px solid #ddd;
-            text-align: center;
+            text-align: center;            
+            /* flex-grow: 1; */
             flex: 1 1 30%;
         }       
 
@@ -34,11 +36,13 @@
     @media (max-width: 480px) {  
         .flex-item {
             flex: 1 1 100%;
+            background-color: blue;
         }
     }
     </style>
 </head>
 <body>
+    <h1></h1>
     <div class="container-flex">
         <div class="flex-item">Flex 1</div>
         <div class="flex-item">Flex 2</div>
@@ -50,5 +54,20 @@
         <div class="flex-item">Flex 8</div>
         <div class="flex-item">Flex 9</div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1 = document.querySelector('h1');
+            const updateScreenWidth = () => {
+                const bodyWidth = window.innerWidth;
+                h1.textContent = `Current screen width: ${bodyWidth}px`;
+            };
+            
+            // Initial call to set the width on page load
+            updateScreenWidth();
+            
+            // Add event listener for resize event
+            window.addEventListener('resize', updateScreenWidth);
+        });
+    </script>
 </body>
 </html>

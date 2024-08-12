@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* Base styles for desktop */
-        .container-grid {
+       /* desktop first approach*/        
+        /* .container-grid {
             margin: 20px;
             border: 1px solid #ccc;
             padding: 10px;
+            background-color: yellow;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
         }
 
         .grid-item{
@@ -18,28 +22,61 @@
             background-color: #f4f4f4;
             border: 1px solid #ddd;
             text-align: center;
-        }
-
-                /* Grid container */
-        .container-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-
+        } */
 
         /* Responsive styles for tablets */
-        @media (max-width: 768px) {
-            .container-grid {
+       /* @media (max-width: 1024px){
+        .container-grid{
+            grid-template-columns: repeat(2, 1fr);
+            background-color: aqua;
+        }
+       }  */
+
+       /* Responsive styles for small phones*/ 
+       /* @media screen and (max-width: 470px) {
+        .container-grid{
+            grid-template-columns: repeat(1, 1fr);
+            background-color: rgb(255, 0, 21);
+        }
+       } */
+
+       /* mobile first approach*/    
+        .container-grid{
+            margin: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;            
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            background-color: rgb(255, 0, 21);
+        }
+        .grid-item{
+            margin: 5px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        /* media query for tablets */
+        @media screen and (min-width:471px) {
+            .container-grid{
                 grid-template-columns: repeat(2, 1fr);
+                background-color: aqua;
             }
         }
 
-        /* Responsive styles for mobile */
-        @media (max-width: 480px) {
-            .container-grid {
-                grid-template-columns: 1fr;
+        /* media query for desktops and larger screens */
+        @media screen and (min-width:471px) {
+            .container-grid{
+                grid-template-columns: repeat(2, 1fr);
+                background-color: aqua;
+            }
+        }
+        /* media query for tablets */
+        @media screen and (min-width:1025px) {
+            .container-grid{
+                grid-template-columns: repeat(3, 1fr);
+                background-color: yellow;
             }
         }
     </style>
