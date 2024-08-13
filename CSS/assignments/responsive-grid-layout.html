@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        .container{
+            width: 80%;
+            height: 500px;
+            /* background-color: blanchedalmond; */
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        .container div{
+            height: 100px;
+            width: 100%;
+        }
+        .flex{
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+        }
+        .flex div{
+            height: 100px;
+        }
+        #one, #eleven{
+            background-color: #BB52D3;
+        }
+        #seven, #two, #nine{
+            background-color: #FBA710;
+        }
+        #four, #six, #eight{
+            background-color: #01BFCD;
+        }
+        #three, #five, #ten{
+            background-color: #F0404D;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="one">1</div>
+        <div class="flex">
+            <div id="two">2</div>
+            <div id="three">3</div>
+        </div>
+        <div id="four">4</div>
+        <div class="flex">
+            <div id="five">5</div>
+            <div id="six">6</div>
+            <div id="seven">7</div>
+        </div>
+        <div class="flex">
+            <div id="eight">8</div>
+            <div id="nine">9</div>
+            <div id="ten">10</div>
+        </div>
+        <div id="eleven">
+            11
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #E0F1E7;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        form{
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .flex{
+            display: flex;
+            gap: 15px;
+        }
+        .form-input{
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .radio-input{
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            flex: 1;
+            display: flex;
+            gap: 10px;
+        }
+        textarea{
+            resize: none;
+            height: 100px;
+        }
+        button{
+            width: 100%;
+            background-color: #0C7D69;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <h1>Contact Us</h1>
+        <div class="flex">
+            <div class="form-input">
+                <label for="">First Name *</label>
+                <input type="text" placeholder="Enter your First name">
+            </div>
+            <div class="form-input">
+                <label for="">Last Name *</label>
+                <input type="text" placeholder="Enter your last name">
+            </div>
+        </div>
+        <div class="form-input">
+            <label for="">Email Address *</label>
+            <input type="email" placeholder="Enter your email">
+        </div>
+        <div class="radio-group">
+            <p>Query Type *</p>
+            <div class="flex">
+                <div class="radio-input">
+                    <input type="radio">
+                    <label for="">General Enquiry</label>
+                </div>
+                <div class="radio-input">
+                    <input type="radio">
+                    <label for="">Support request</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-input">
+            <label for="">Message *</label>
+            <textarea name="" id="" placeholder="Enter your message"></textarea>
+        </div>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
