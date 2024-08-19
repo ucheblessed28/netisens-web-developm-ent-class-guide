@@ -7,9 +7,30 @@
     <style>
         .box{
             /* width: 100px; */
-            height: 100px;
+            /* height: 100px; */
             background-color: blue;
             color: white;
+            display: grid;
+            place-items: center;
+            font-size: 50px;
+        }
+        .box:nth-child(2){
+            background-color: brown;
+            grid-column: span 2;
+        }
+        .box:nth-child(4){
+            background-color: rgb(42, 165, 79);
+            grid-row: span 2;
+        }
+        .box:nth-child(7){
+            background-color: rgb(165, 42, 42);
+            /* grid-row: ; */
+            /* grid-row-start: 4;
+            grid-row-end: 5; */
+            grid-row: 4/5;
+            /* grid-column-start: 1;
+            grid-column-end: 4; */
+            grid-column: 1/4;
         }
         body{            
             display: grid;           
@@ -18,11 +39,17 @@
         }
         .wrapper{
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+            background-color: yellow;
+            /* grid-template-columns: 60% calc(40% - 20px); */
+            grid-template-columns: repeat(3, 1fr);            
+            /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+            /* grid-template-columns: repeat(auto-fill, 200px); */
+            /* grid-template-rows: 1fr 4fr 2fr; */
             /* row-gap: 10px;
             column-gap: 20px; */
             gap: 20px;
-            width: 500px;
+            width: 1200px;
+            height: 500px;
         }
     </style>
 </head>
