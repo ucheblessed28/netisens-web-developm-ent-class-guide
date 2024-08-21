@@ -5,12 +5,46 @@
 // Arithmetic Operators:
 
 // + (Addition): a + b
+let num1 = 5;
+let num2 = 9;
+
+console.log(num1 + num2);
+
 // - (Subtraction): a - b
+let num3 = 71;
+let num4 = 14;
+
+console.log(num3 - num4 + num2);
+
 // * (Multiplication): a * b
+console.log(num3 * num1);
+
 // / (Division): a / b
+console.log(num3 / num1);
+
 // % (Modulus): a % b
+
+console.log(num4 % num1);
+
 // ++ (Increment): a++ or ++a
+let a = 6;
+console.log({a});
+a++;
+console.log({a});
+
 // -- (Decrement): a-- or --a
+let b;
+console.log({b});
+
+// V = IR
+let v;
+let I = 7;
+let R = 50;
+v = I * R
+console.log({v});
+
+// BODMAS
+(3/2 *6)
 
 // let num1 = 20;
 // num1 = num1 + 1;
