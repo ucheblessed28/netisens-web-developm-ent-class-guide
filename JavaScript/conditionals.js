@@ -8,22 +8,37 @@
 //   code to execute if condition is true
 // }
 
-let password = '12345678';
+// let password = '12345678';
 
-if(password === '12345678wqwttrtry'){
-    console.log('logged in successfully');
-}else{
-    console.log('invalid credentials');
-}
+// if(password === '12345678wqwttrtry'){
+//     console.log('logged in successfully');
+// }else{
+//     console.log('invalid credentials');
+// }
+
+// console.log(typeof 'Musa');
+// console.log(typeof {});
+// console.log(typeof []);
+// console.log(typeof '55');
+
 
 // get the user score and store it in the variable
 let score = prompt("Please enter your score: ");
 
+
 // displayijng the score in the console
 console.log({score});
 
+console.log('lenght check: ' + score.length);
+
+console.log(score.trim() !== '');
+
+
+// console.log(isNaN("70"));
+
+
 // checking for invalid scores
-if(score < 0 || score > 100){
+if(score < 0 || score > 100 || isNaN(score) || score.length < 1 || score.trim() !== '') {
     console.log('invalid score');    
     // checking if the score is greater than or eauals to seventy
 }else if(score >= 70){
@@ -38,21 +53,21 @@ if(score < 0 || score > 100){
     console.log('YOu have an F, come back next year Dummy!!');
 }
 
-if(score >= 0 && score <= 100){
-    if(score >= 70){
-        console.log('YOu have an A');    
-    }else if(score >= 60){
-        console.log('YOu have a B');    
-    }else if(score >= 50){
-        console.log('YOu have a C');
-    }else if(score >= 45){
-        console.log('YOu have D');    
-    }else{
-        console.log('YOu have an F, come back next year Dummy!!');
-    }
-}else{
-    console.log('invalid score');    
-}
+// if(score >= 0 && score <= 100 && !isNaN(score) && score.length && score.trim() !== ''){
+//     if(score >= 70){
+//         console.log('YOu have an A');    
+//     }else if(score >= 60){
+//         console.log('YOu have a B');    
+//     }else if(score >= 50){
+//         console.log('YOu have a C');
+//     }else if(score >= 45){
+//         console.log('YOu have D');    
+//     }else{
+//         console.log('YOu have an F, come back next year Dummy!!');
+//     }
+// }else{
+//     console.log('invalid score');    
+// }
 
 // let bankBalance = 70000;
 
@@ -102,6 +117,7 @@ if(score >= 0 && score <= 100){
 //     default:
 //       code to execute if expression doesn't match any case
 //   }
+
 let num = 2 + 5;
 // switch (num){
 //     case 7:
