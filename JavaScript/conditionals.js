@@ -22,52 +22,43 @@
 // console.log(typeof '55');
 
 
-// get the user score and store it in the variable
+// Get the user input and store it in the variable
 let score = prompt("Please enter your score: ");
+console.log('Score before trimming: ' + score);
+console.log('length before trimming: ' + score.length);
+
+// Remove any leading or trailing whitespaces from the score
+score = score.trim();
+console.log('Score after trimming: ' + score);
+console.log('length after trimming: ' + score.length);
 
 
-// displayijng the score in the console
-console.log({score});
-
-console.log('lenght check: ' + score.length);
-
-console.log(score.trim() !== '');
-
-
-// console.log(isNaN("70"));
-
-
-// checking for invalid scores
-if(score < 0 || score > 100 || isNaN(score) || score.length < 1 || score.trim() !== '') {
-    console.log('invalid score');    
-    // checking if the score is greater than or eauals to seventy
-}else if(score >= 70){
-    console.log('YOu have an A');    
-}else if(score >= 60){
-    console.log('YOu have a B');    
-}else if(score >= 50){
-    console.log('YOu have a C');
-}else if(score >= 45){
-    console.log('YOu have D');    
+// check if score is greater than 0
+if(score.length > 0 && !isNaN(score) ){
+    // Convert Score into a number
+    score = Number(score);
+    console.log('Score after converting to number: ' + score);
+    if(score >=0 && score <= 100){
+        if(score >= 70){
+            console.log('Congratulations, you scored an A');
+        }else if(score >=60){
+            console.log('Congratulations, you scored a B');
+        }else if(score >=50){
+            console.log('Congratulations, you scored a C');
+        }else if(score >=45){
+            console.log('Congratulations, you scored a D');
+        }else{
+            console.log('Congratulations, you scored an F, come back next year Dummy');
+        }
+    }else{
+        console.log('invalid score, out of range')
+    }
+   
 }else{
-    console.log('YOu have an F, come back next year Dummy!!');
+    console.log('Invalid score');
 }
 
-// if(score >= 0 && score <= 100 && !isNaN(score) && score.length && score.trim() !== ''){
-//     if(score >= 70){
-//         console.log('YOu have an A');    
-//     }else if(score >= 60){
-//         console.log('YOu have a B');    
-//     }else if(score >= 50){
-//         console.log('YOu have a C');
-//     }else if(score >= 45){
-//         console.log('YOu have D');    
-//     }else{
-//         console.log('YOu have an F, come back next year Dummy!!');
-//     }
-// }else{
-//     console.log('invalid score');    
-// }
+
 
 // let bankBalance = 70000;
 
