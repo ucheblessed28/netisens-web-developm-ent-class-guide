@@ -30,20 +30,38 @@
 // 1.) document.getElementById()
 // Usage: Retrieves an element by its unique id attribute.
 
-// let ourH1 = document.getElementById('coding');
-// console.log(ourH1.textContent);
+// document.getElementById()
+const selectedH1 = document.getElementById('title');
+console.log(selectedH1);
 
 // 2.) document.getElementsByClassName()
 // Usage: Retrieves a collection of elements with the specified class name..
+const headers = document.getElementsByClassName('main-header');
+console.log(headers);
 
 // 3.) document.getElementsByTagName()
 // Usage: Retrieves a collection of elements with the specified tag name..
 
+const myParagraph = document.getElementsByTagName('p');
+console.log(myParagraph);
+
 // 4.) document.querySelector()
 // Usage: Retrieves the first element that matches a specified CSS selector.
+const mainheaderElement = document.querySelector('h3.main-header');
+console.log(mainheaderElement);
+mainheaderElement.innerText = 'Happy Hour';
+mainheaderElement.style.color = 'Red'
 
 // 5.) document..querySelectorAll()
 // Usage: Retrieves all elements that match a specified CSS selector
+const allSpecialHeadings = document.querySelectorAll('h3.main-header');
+console.log(allSpecialHeadings);
+
+// const AfricanTExt = document.querySelector('span h3');
+const AfricanTExt = document.querySelector('section.box h3');
+AfricanTExt.style.color = 'green';
+
+// Changing Styles
 
 // const titleElement = document.getElementById("title");
 // console.log(titleElement); // Outputs the h1 element
