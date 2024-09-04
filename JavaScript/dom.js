@@ -61,6 +61,20 @@ console.log(allSpecialHeadings);
 const AfricanTExt = document.querySelector('section.box h3');
 AfricanTExt.style.color = 'green';
 
+
+const targetDiv = document.getElementById('box');
+console.log(targetDiv);
+
+targetDiv.style.backgroundColor = 'blue';
+targetDiv.style.height = '300px';
+targetDiv.style.width = '300px';
+targetDiv.style.color = '#fff';
+targetDiv.style.fontSize = '50px';
+targetDiv.style.display = 'grid';
+targetDiv.style.placeContent = 'center';
+
+// const whorepresentswho = 'Jason'
+
 // Changing Styles
 
 // const titleElement = document.getElementById("title");
@@ -80,11 +94,12 @@ AfricanTExt.style.color = 'green';
 
     //Example
     // const element = document.getElementById('example');
+    // console.log(element);
     // console.log(element.innerHTML);
 
-    // const myH1 = document.getElementById('coding')
-    // // myH1.innerHTML = `<p>Hidden text</p><p>Visible text</p>`
-    // myH1.innerHTML = `<input type="text" placeholder="enter your password">`
+    // element.innerHTML = `<p>Hidden text</p><p>Visible text</p>`;
+    // console.log(element);
+    // console.log(element.innerHTML);
 
 // 2. textContent
 // Purpose: Gets or sets the text content of an element and all its descendants.
@@ -95,8 +110,7 @@ AfricanTExt.style.color = 'green';
     // const element = document.getElementById('example');
     // console.log(element.textContent);
 
-    // const word = document.getElementById('coding')
-    // word.textContent = `<p>Hidden text</p><p>Visible text</p>`
+    // element.textContent = `<p>Hidden text</p><p>Visible text</p>`
 
 // 3. innerText
 // Purpose: Gets or sets the visible text content of an element and its descendants.
@@ -105,8 +119,8 @@ AfricanTExt.style.color = 'green';
 
 
     //Example
-    // const element = document.getElementById('example');
-    // console.log(element.innerText);
+    const element = document.getElementById('example');
+    console.log(element.innerText);
 
     // const word = document.getElementById('heading')
     // word.innerText = `<p>Hidden text</p>

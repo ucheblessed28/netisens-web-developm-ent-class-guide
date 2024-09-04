@@ -23,16 +23,25 @@
 // A.) Mouse Events
 
 // 1.) Click: Triggered when an element is clicked.
+
 // const button = document.getElementById("myButton");
+// console.log(button);
+
+// const handleClick = () => {
+//     alert("Button was clicked!");
+// }
+
+// button.addEventListener("click", handleClick);
+
 // button.addEventListener("click", function() {
 //   alert("Button was clicked!");
 // });
 
 // 2.) dblclick: Triggered when an element is double-clicked.
-// const button = document.getElementById("myButton");
-// button.addEventListener("dblclick", function() {
-//   alert("Button was double-clicked!");
-// });
+const button = document.getElementById("myButton");
+button.addEventListener("dblclick", function() {
+  alert("Button was double-clicked!");
+});
 
 // 3.) mouseover: Triggered when the mouse pointer is moved over an element.
 // const button = document.getElementById("myButton");
