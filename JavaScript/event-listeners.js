@@ -27,9 +27,9 @@ console.log(button);
 
 // 1.) Click: Triggered when an element is clicked.
 
-const handleClick = () => {
-    alert("Button was clicked!");
-}
+// const handleClick = () => {
+//     alert("Button was clicked!");
+// }
 
 // button.addEventListener("click", handleClick);
 
@@ -115,32 +115,32 @@ const form = document.getElementById("myForm");
 
 // D.) Window Events
 // 1.) load:Triggered when the entire page has loaded.
-window.addEventListener("load", function() {
-    alert("Page has fully loaded!");
-  });
+// window.addEventListener("load", function() {
+//     alert("Page has fully loaded!");
+//   });
 
 // 2.) resize: Triggered when the browser window is resized.
-window.addEventListener("resize", function() {
-    console.log("Window resized to: " + window.innerWidth + "x" + window.innerHeight);
-  });
+// window.addEventListener("resize", function() {
+//     console.log("Window resized to: " + window.innerWidth + "x" + window.innerHeight);
+//   });
 
 // 3.) scroll: Triggered when the user scrolls the page.
-window.addEventListener("scroll", function() {
-    console.log("Page scrolled!");
-  });
+// window.addEventListener("scroll", function() {
+//     console.log("Page scrolled!");
+//   });
 
 
 
 // Removing Event Listeners
-// function handleClick() {
-//     alert("Button clicked!");
-//   }
+function handleClick() {
+    alert("Button clicked!");
+  }
   
-//   const button = document.getElementById("myButton");
-//   button.addEventListener("click", handleClick);
   
-//   // Later, remove the event listener
-//   button.removeEventListener("click", handleClick);
+  button.addEventListener("click", handleClick);
+  
+  // Later, remove the event listener
+  button.removeEventListener("click", handleClick);
   
   
 
