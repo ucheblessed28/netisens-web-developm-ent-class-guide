@@ -6,7 +6,9 @@
 
 // 1.) Object Literal Notation:
 let vehicle = {};
+// console.log(vehicle);
 vehicle.brand = "Toyota";
+// console.log(vehicle);
 vehicle["model"] = "Camry";
 // console.log(vehicle);
 // console.log(vehicle.model);
@@ -18,13 +20,14 @@ const person = {
   age: 30,
   profession: "Engineer",
   greet: function () {
-    console.log("Hello, my name is " + this.name);
+    console.log("Hello, my name is " + person.name);
   },
   drive: (carname) => {
     console.log(carname + " Vroooooooooooooom...");
   },
 };
 
+// person.greet();
 // console.log(person);
 
 // person.drive('Tesla');
@@ -32,20 +35,21 @@ const person = {
 // 2.)  Using new Object() Syntax:
 
 const car = new Object();
+// console.log(car);
 car.brand = "Toyota";
 car.model = "Corolla";
 car.year = 2020;
 
-//   console.log(car);
+  // console.log(car);
 
 //   Accessing Object Properties
 //   You can access object properties in two ways:
 
 //   Dot Notation:
-//   console.log(person.name);  // Output: John
+  // console.log(person.name);  // Output: John
 
 // Bracket Notation (useful when keys are dynamic or have spaces):
-//   console.log(person['age']);  // Output: 30
+  // console.log(person['age']);  // Output: 30
 
 //   Methods
 //   A method is a function that is a property of an object.
@@ -54,6 +58,11 @@ car.year = 2020;
 
 // Destructuring Objects
 // Destructuring allows you to unpack values from objects into distinct variables.
+
+// const number = person.age;
+const { age:number, drive: driver, greet  } = person;
+// driver('mercedes benz');
+// greet();
 
 // const { age : my_Age, name, drive } = person;
 // const age = person.age;
@@ -78,40 +87,46 @@ const student = {
 // const english = student["scores"]["english"];
 // console.log(english);
 
-//   const { scores } = student;
-//   const { math, english } = scores;
-const {
-  scores: { english, math },
-} = student;
-console.log(english);
+  const { scores } = student;
+  // const { math, english } = scores;
+const {  scores: { english, math }} = student;
+// console.log(english);
 
-//   console.log(math);    // Outputs: 90
-//   console.log(english); // Outputs: 85
+  // console.log(math);    // Outputs: 90
+  // console.log(english); // Outputs: 85
 
 const myVehicle = {
   brand: "Toyota",
   model: "Hilux",
-  colors: ["Blue", "Green", "red", "Yellow", ["Pink", "brown"]],
+  colors: ["Blue", "Green", "red", "Yellow", ["Pink", "brown"], {animals: 'Turkeys and Chickens'}],
   isAvailable: true,
   engineStats: {
     mileage: 1000,
     props: {
       electric: {
         batterySize: 10000,
-        chargers: ["10W", "20W", "50W"],
+        chargers: ["10W", "20W", "50W", [2, [2, 4.5, {cook: () => {console.log("You are cooked bro!")}}]]],
       },
     },
   },
 };
 
-const { colors,
-  engineStats: {
-    props: {
-      electric: { batterySize, chargers },
-    },
-  },
-} = myVehicle;
-console.log(colors[4][1], batterySize, chargers[2]);
+// myVehicle.engineStats.props.electric.chargers[3][1][2].cook();
+
+const { engineStats: {props: {electric: {chargers}}}, colors} = myVehicle;
+// console.log(chargers)
+chargers[3][1][2].cook();
+console.log(colors[5].animals);
+console.log(colors[5]["animals"]);
+
+// const { colors,
+//   engineStats: {
+//     props: {
+//       electric: { batterySize, chargers },
+//     },
+//   },
+// } = myVehicle;
+// console.log(colors[4][1], batterySize, chargers[2]);
 // console.log({ batterySize });
 // console.log(chargers[2]);
 
