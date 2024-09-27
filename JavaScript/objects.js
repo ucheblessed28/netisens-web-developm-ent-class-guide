@@ -226,6 +226,20 @@ myObj.b = 3; // Not allowed
 // console.log(obj);
 
 //Class Work
-// 1.) create an Object called student
+// 1.) create an Object called myStudent
 // 2.) give it a name property and assign a string value to it
 // 3.) give it a grades property and assign an array of 7 numbers to it
+
+const myStudent = {
+  name: "Bob",
+  scores: [12, 67, 90, 25, 50, 71, 84, 52, 99, 30],
+  getHighestScore: () => {
+
+  },
+  getLowestScore: () => {
+
+  },
+  calculateAverageScore: () => {
+    
+  }
+}
