@@ -115,9 +115,9 @@ const myVehicle = {
 
 const { engineStats: {props: {electric: {chargers}}}, colors} = myVehicle;
 // console.log(chargers)
-chargers[3][1][2].cook();
-console.log(colors[5].animals);
-console.log(colors[5]["animals"]);
+// chargers[3][1][2].cook();
+// console.log(colors[5].animals);
+// console.log(colors[5]["animals"]);
 
 // const { colors,
 //   engineStats: {
@@ -134,20 +134,22 @@ console.log(colors[5]["animals"]);
 // The spread operator (...) allows you to copy or merge objects and arrays, as well as to unpack elements.
 
 // Copying an Object
-const person2 = { ...person, city: "New York" };
+const person34 = {continent: 'Africa', Age: 345, Name: "John"}
+const person2 = person34;
 // console.log(person2);
 
-// Copying an Array
+// Copying an Array.
 const cars = ["Toyota", "Ford", "BMW"];
 const cars2 = [...cars, "Honda"];
+// console.log(cars2);
 
 // Merging Objects
 // You can merge multiple objects using the spread operator:
-const obj1 = { x: 1, y: 2 };
+const obj1 = { x: 1, q: 2 };
 const obj2 = { y: 5, z: 3 };
 
 const merged = { ...obj1, ...obj2 }; // `y` will be overwritten by obj2's `y`
-// console.log(merged);  // Outputs: { x: 1, y: 5, z: 3 }
+console.log(merged);  // Outputs: { x: 1, y: 5, z: 3 }
 
 // Adding or Overwriting Properties in an Object
 // You can add or modify properties while spreading:
@@ -162,7 +164,7 @@ const person4 = { name: "John", age: 30, city: "New York" };
 const deletedPerson = { ...person4 };
 delete deletedPerson.city;
 
-// console.log(deletedPerson);
+console.log(deletedPerson);
 
 // Object Methods
 // There are built-in methods to manipulate objects.
@@ -170,15 +172,15 @@ delete deletedPerson.city;
 // Object.keys()
 // Returns an array of the object’s keys.
 const citizen = { name: "John", age: 30 };
-// console.log(Object.keys(citizen));
+console.log(Object.keys(citizen));
 
 // Object.values()
 // Returns an array of the object’s values.
-// console.log(Object.values(citizen));
+console.log(Object.values(citizen));
 
 // Object.entries()
 // Returns an array of key-value pairs.
-// console.log(Object.entries(citizen));
+console.log(Object.entries(citizen));
 
 // this Keyword
 // In JavaScript, this refers to the current object the code is being written in.
@@ -190,7 +192,7 @@ const user = {
   },
 };
 
-user.greet();
+// user.greet();
 
 //   Object Shorthand Syntax
 //   When creating objects, if the key and variable name are the same, you can use shorthand syntax:
@@ -214,16 +216,17 @@ const myCar = {
 
 // Object.freeze(): Prevents modification of properties in the object.
 const obj = { a: 1 };
-Object.freeze(obj);
+// Object.freeze(obj);
+obj.b = 10;
 obj.a = 2; // No effect, because the object is frozen
 // console.log(obj);
 
 // Object.seal(): Allows modification of existing properties but prevents new properties from being added.
 const myObj = { a: 1 };
-Object.seal(obj);
+Object.seal(myObj);
 myObj.a = 2; // Allowed
 myObj.b = 3; // Not allowed
-// console.log(obj);
+console.log(myObj);
 
 //Class Work
 // 1.) create an Object called myStudent
@@ -233,13 +236,33 @@ myObj.b = 3; // Not allowed
 const myStudent = {
   name: "Bob",
   scores: [12, 67, 90, 25, 50, 71, 84, 52, 99, 30],
-  getHighestScore: () => {
-
+  getHighestScore: function(){    
+    let highestScore = this.scores[0];
+    for(let q = 0; q < this.scores.length; q++){        
+      if(this.scores[q] > highestScore){
+        highestScore = this.scores[q];
+      }      
+    }
+    console.log(`${this.name} highest score is ${highestScore}`);
   },
-  getLowestScore: () => {
-
-  },
-  calculateAverageScore: () => {
-    
+  getLowestScore: function(){
+    let lowestScore = this.scores[0];
+    for(let q = 0; q < this.scores.length; q++){        
+      if(this.scores[q] < lowestScore){
+        lowestScore = this.scores[q];
+      }      
+    }
+    console.log(`${this.name} lowest score is ${lowestScore}`);  },
+  calculateAverageScore: function(){
+    let totalScore = 0;
+    for(let q = 0; q < this.scores.length; q++){        
+      totalScore =  totalScore + this.scores[q];
+    }
+    let averageScore = totalScore / this.scores.length;
+    console.log(`${this.name} average score is ${averageScore}`);
   }
 }
+
+// myStudent.getHighestScore();
+// myStudent.getLowestScore();
+// myStudent.calculateAverageScore();
