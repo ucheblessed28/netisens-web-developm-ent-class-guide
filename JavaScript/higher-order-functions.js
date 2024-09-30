@@ -20,14 +20,27 @@
 function greet(name) {   
     console.log(`Hello, ${name}!`);
 }
-  
-function logGreeting(callBack, name) {
-    callBack(name);
+
+// greet('Buhari');
+const sayMyName = (name) => {
+    console.log(`My name is ${name}`)
+}
+
+function logGreeting(myFunc, name) {
+    sayMyName(name);
+    myFunc(name);
 }
   
 // We pass the 'greet' function as an argument to 'logGreeting'
-logGreeting(greet, "Tyronne"); // Output: Hello, Nsikak!
-  
+// logGreeting(greet, "Tyronne"); // Output: Hello, tyronne!
+
+// function Add(num1, num2){
+//     return num1 + num2;
+// }
+
+// let answer = Add(1, 2);
+
+// console.log({answer});
 
 function multiplier(factor) {
     return function(number) {
@@ -36,7 +49,8 @@ function multiplier(factor) {
   }
   
   const multiplyByTwo = multiplier(2);
-  console.log(multiplyByTwo(5)); // Output: 10
+
+//   console.log(multiplyByTwo(5)); // Output: 10
 
   
 //   Callbacks  
@@ -45,17 +59,17 @@ function multiplier(factor) {
 //   It's a way to make sure a function is executed only after another function has finished.
 // Callbacks are commonly used in asynchronous programming but also in higher-order functions.
 
-// function getUserName(callback) {
-//     const name = "Chad";
-//     callback(name);
-//   }
+function getUserName(callback) {
+    const name = "Chad";
+    callback(name);
+}
   
-//   function greetUser(name) {
-//     console.log(`Hello, ${name}!`);
-//   }
+  function greetUser(name) {
+    console.log(`Hello, ${name}!`);
+  }
   
 //   // Passing 'greetUser' as a callback to 'getUserName'
-//   getUserName(greetUser); // Output: Hello, Nsikak!
+//   getUserName(greetUser); // Output: Hello, Chad!
 
 
 // Inbuilt Higher-Order Functions (Array Methods)
@@ -67,17 +81,26 @@ function multiplier(factor) {
 // Use Case: It’s used to perform an action on every item in an array, but it does not return anything.
 
 // const numbers = [1, 2, 3, 4, 5];
-// numbers.forEach(function(number) {
-//     console.log(number * 2); // Output: 2, 4, 6, 8
+// const multiplyBy = (number) => {
+//     console.log(number * 2);
+// }
+// numbers.forEach((number) => multiplyBy(number));
+
+// numbers.forEach(function(number){
+//     console.log(number * 2);    
 // });
+
+// numbers.forEach((number) => console.log(number * 2));
+
+
 
 // B.) map
 // Purpose: The map method creates a new array populated with the results of calling a provided function on every element in the calling array.
 // Use Case: It’s used when you want to transform an array into another array.
 // const numbers = [1, 2, 3, 4];
 // const doubled = numbers.map((number) => number * 2);
-
 // console.log(doubled); // Output: [2, 4, 6, 8]
+
 
 // C. filter
 // Purpose: The filter method creates a new array with all elements that pass the test implemented by the provided function.
@@ -105,7 +128,7 @@ function multiplier(factor) {
 //     { name: "Nsikak", age: 37 }
 //   ];
   
-//   const user = users.find(user => user.age === 26);
+//   const user = users.find((user) => user.age === 37);
   
 //   console.log(user); // Output: { name: "Nsikak", age: 37 }
   
@@ -116,25 +139,25 @@ function multiplier(factor) {
 // every checks if all elements in the array pass the test.
 // const numbers = [1, 2, 3, 4];
 
-// Using some
+// // Using some
 // const hasEven = numbers.some((number) => number % 2 === 0);
 // console.log(hasEven); // Output: true (because 2 and 4 are even)
 
-// Using every
+// // Using every
 // const allEven = numbers.every((number) => number % 2 === 0);
 // console.log(allEven); // Output: false (because not all numbers are even)
 
 
 // Using a Custom Higher-Order Function with a Callback
-// function repeatAction(n, action) {
-//     for (let i = 0; i < n; i++) {
-//       action(i);
-//     }
-//   }
+function repeatAction(n, action) {
+    for (let i = 0; i < n; i++) {
+      action(i);
+    }
+  }
   
-//   repeatAction(3, (i) => {
-//     console.log(`This is iteration ${i + 1}`);
-//   });
+  repeatAction(3, (i) => {
+    console.log(`This is iteration ${i + 1}`);
+  });
 
 
 // console.log("Task 1: Start");
