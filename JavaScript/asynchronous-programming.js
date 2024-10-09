@@ -11,31 +11,31 @@
 // Let's look at an example of how they work.
 
 
-// console.log("Task 1: Start");
+console.log("Task 1: Start");
 
-// // Callback function executed after 2 seconds (2000 milliseconds)
-// setTimeout(function() {
-//   console.log("Task 2: This is delayed by 2 seconds");
-// }, 2000);
+// Callback function executed after 2 seconds (2000 milliseconds)
+setTimeout(function() {
+  console.log("Task 2: This is delayed by 2 seconds");
+}, 2000);
 
-// console.log("Task 3: End");
+console.log("Task 3: End");
 
-function fetchData(callback) {
-  console.log("Fetching data...");
+// function fetchData(callback) {
+//   console.log("Fetching data...");
 
-  // Simulate a delay (e.g., fetching data from an API)
-  setTimeout(() => {
-    const data = { user: "Nsikak", age: 26 };
-    callback(data);
-  }, 2000); // Wait 2 seconds before executing the callback
-}
+//   // Simulate a delay (e.g., fetching data from an API)
+//   setTimeout(() => {
+//     const data = { user: "Nsikak", age: 26 };
+//     callback(data);
+//   }, 2000); // Wait 2 seconds before executing the callback
+// }
 
-function processData(data) {
-  console.log(`User: ${data.user}, Age: ${data.age}`);
-}
+// function processData(data) {
+//   console.log(`User: ${data.user}, Age: ${data.age}`);
+// }
 
-// Passing 'processData' as a callback to 'fetchData'
-fetchData(processData);
+// // Passing 'processData' as a callback to 'fetchData'
+// fetchData(processData);
 
 
 
@@ -43,32 +43,32 @@ fetchData(processData);
 // Callback Hell happens when you have too many nested callbacks, making the code hard to read and maintain.
 // Let's simulate a scenario where we need to fetch user details, process them, and save them to a database:
 
-function getUser(callback) {
-  setTimeout(() => {
-      callback({ name: "Nsikak" });
-  }, 1000);
-}
+// function getUser(callback) {
+//   setTimeout(() => {
+//       callback({ name: "Nsikak" });
+//   }, 1000);
+// }
 
-function getAge(user, callback) {
-  setTimeout(() => {
-      callback({ ...user, age: 26 });
-  }, 1000);
-}
+// function getAge(user, callback) {
+//   setTimeout(() => {
+//       callback({ ...user, age: 26 });
+//   }, 1000);
+// }
 
-function saveToDatabase(user, callback) {
-  setTimeout(() => {
-      callback("User saved to database: " + JSON.stringify(user));
-  }, 1000);
-}
+// function saveToDatabase(user, callback) {
+//   setTimeout(() => {
+//       callback("User saved to database: " + JSON.stringify(user));
+//   }, 1000);
+// }
 
-// This results in nested callbacks, which is known as "callback hell"
-getUser((user) => {
-  getAge(user, (userWithAge) => {
-      saveToDatabase(userWithAge, (message) => {
-          console.log(message); // Output: User saved to database: {"name":"Nsikak","age":26}
-      });
-  });
-});
+// // This results in nested callbacks, which is known as "callback hell"
+// getUser((user) => {
+//   getAge(user, (userWithAge) => {
+//       saveToDatabase(userWithAge, (message) => {
+//           console.log(message); // Output: User saved to database: {"name":"Nsikak","age":26}
+//       });
+//   });
+// });
 
 // Callback Hell makes code harder to follow. Promises and async/await can help solve this problem.
 
@@ -84,55 +84,55 @@ getUser((user) => {
 //   Fulfilled: The operation completed successfully.
 //   Rejected: The operation failed.
 
-const myPromise = new Promise((resolve, reject) => {
-  // Simulate an asynchronous operation
-  const success = false;
+// const myPromise = new Promise((resolve, reject) => {
+//   // Simulate an asynchronous operation
+//   const success = false;
 
-  setTimeout(() => {
-    if (success) {
-      resolve("Operation successful!");
-    } else {
-      reject("Operation failed!");
-    }
-  }, 2000);
-});
+//   setTimeout(() => {
+//     if (success) {
+//       resolve("Operation successful!");
+//     } else {
+//       reject("Operation failed!");
+//     }
+//   }, 2000);
+// });
 
-console.log('myPromise >>>', myPromise)
+// console.log('myPromise >>>', myPromise)
 
 //   Handling a Promise
 //   We can handle promises using .then() and .catch().
 
-myPromise
-.then((message) => {
-  console.log(message); // Output: Operation successful!
-})
-.catch((error) => {
-  console.log(error); // If failed, output: Operation failed!
-});
+// myPromise
+// .then((message) => {
+//   console.log(message); // Output: Operation successful!
+// })
+// .catch((error) => {
+//   console.log(error); // If failed, output: Operation failed!
+// });
 
 
 // Chaining Promises
 // When you have multiple asynchronous tasks, you can chain promises to handle them in order.
 
-const fetchUser = new Promise((resolve, reject) => {
-setTimeout(() => resolve({ user: "Nsikak" }), 1000);
-});
+// const fetchUser = new Promise((resolve, reject) => {
+// setTimeout(() => resolve({ user: "Nsikak" }), 1000);
+// });
 
-const fetchAge = new Promise((resolve, reject) => {
-setTimeout(() => resolve({ age: 26 }), 1000);
-});
+// const fetchAge = new Promise((resolve, reject) => {
+// setTimeout(() => resolve({ age: 26 }), 1000);
+// });
 
-fetchUser
-.then((userData) => {
-  console.log(userData); // Output: { user: "Nsikak" }
-  return fetchAge;
-})
-.then((ageData) => {
-  console.log(ageData); // Output: { age: 26 }
-})
-.catch((error) => {
-  console.error(error);
-});
+// fetchUser
+// .then((userData) => {
+//   console.log(userData); // Output: { user: "Nsikak" }
+//   return fetchAge;
+// })
+// .then((ageData) => {
+//   console.log(ageData); // Output: { age: 26 }
+// })
+// .catch((error) => {
+//   console.error(error);
+// });
 
 
 
@@ -143,30 +143,30 @@ fetchUser
 // It makes the code look synchronous while still being asynchronous under the hood.
 // async/await improves readability, especially when there are multiple async operations.
 
-async function fetchUserData() {
-  try {
-      // Simulate fetching user data
-      const user = await new Promise((resolve) => {
-          setTimeout(() => resolve({ user: "Nsikak" }), 1000);
-      });
-      console.log("User fetched:", user);
+// async function fetchUserData() {
+//   try {
+//       // Simulate fetching user data
+//       const user = await new Promise((resolve) => {
+//           setTimeout(() => resolve({ user: "Nsikak" }), 1000);
+//       });
+//       console.log("User fetched:", user);
 
-      // Simulate fetching age data
-      const age = await new Promise((resolve) => {
-          setTimeout(() => resolve({ age: 26 }), 1000);
-      });
-      console.log("Age fetched:", age);
+//       // Simulate fetching age data
+//       const age = await new Promise((resolve) => {
+//           setTimeout(() => resolve({ age: 26 }), 1000);
+//       });
+//       console.log("Age fetched:", age);
 
-      // Combine user and age data
-      const userData = { ...user, ...age };
-      console.log("Combined User Data:", userData);
+//       // Combine user and age data
+//       const userData = { ...user, ...age };
+//       console.log("Combined User Data:", userData);
 
-  } catch (error) {
-      console.error("Error fetching data:", error);
-  }
-}
+//   } catch (error) {
+//       console.error("Error fetching data:", error);
+//   }
+// }
 
-fetchUserData();
+// fetchUserData();
 
 // Explanation of async/await:
 // 1. The `async` keyword before the function makes it return a Promise.
@@ -179,20 +179,20 @@ fetchUserData();
 // ----------------------------------------------------------------------------
 // If you need to catch errors in Promises, a try...catch block can be used within an async function.
 
-async function handlePromiseWithError() {
-  const myPromise = new Promise((resolve, reject) => {
-      setTimeout(() => reject("Something went wrong!"), 1000); // This simulates an error
-  });
+// async function handlePromiseWithError() {
+//   const myPromise = new Promise((resolve, reject) => {
+//       setTimeout(() => reject("Something went wrong!"), 1000); // This simulates an error
+//   });
 
-  try {
-      const result = await myPromise;
-      console.log(result); // This line won't run due to the error
-  } catch (error) {
-      console.error("Caught an error:", error); // Error caught here
-  }
-}
+//   try {
+//       const result = await myPromise;
+//       console.log(result); // This line won't run due to the error
+//   } catch (error) {
+//       console.error("Caught an error:", error); // Error caught here
+//   }
+// }
 
-handlePromiseWithError();
+// handlePromiseWithError();
 
 // ----------------------------------------------------------------------------
 // Summary of Asynchronous Programming Techniques
