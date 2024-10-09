@@ -106,9 +106,40 @@ const nameAndAgeAndLocationLogger = (dataObject) => {
 //   });
 // });
 
-getUser(nameLogger);
+// getUser(nameLogger);
 
 
+const doings = () => {
+  setTimeout(() => {
+    console.log('Decide what you want to chop'); 
+    setTimeout(() => {
+      console.log('I want to eat Indomie noodles');
+      setTimeout(() => {
+        console.log('I just bought three cartons of Indomie noodles');
+        setTimeout(() => {
+          console.log('I just placed a sauce-pan on fire');
+          setTimeout(() => {
+            console.log('I have added some water to the pot');
+            setTimeout(() => {
+              console.log('The water is boiling');
+              setTimeout(() => {
+                console.log('I successfully added my noodles to the pan');
+                setTimeout(() => {
+                  console.log('My Delicious pan of noodles is ready');
+                  setTimeout(() => {
+                    console.log('I have hurriedly and successfully finished all my Noodles')
+                  }, 1000)
+                }, 5000)
+              }, 1000)
+            }, 4000)
+          }, 1000)
+        }, 1000)
+      }, 3000)
+    }, 2000)   
+  }, 0)
+}
+
+doings();
 
 
 // Callback Hell makes code harder to follow. Promises and async/await can help solve this problem.
