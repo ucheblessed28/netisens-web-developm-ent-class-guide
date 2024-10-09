@@ -3,39 +3,57 @@
 // This is known as asynchronous programming.
 
 // Why is Asynchronous Programming Important?
-// When you're doing tasks that take some time to complete (like reading a file or fetching data from an API), you don't want the entire program to stop and wait. 
+// When you're doing tasks that take some time to complete (like reading a file or fetching data from an API), 
+// you don't want the entire program to stop and wait. 
 // Instead, JavaScript can continue to run other code while it waits for the slow task to finish.
 
 // Asynchronous Programming with Callbacks
 // Callbacks are often used to handle asynchronous operations. 
 // Let's look at an example of how they work.
 
+// console.log('one');
+// console.log('two');
+// console.log('three');
 
-console.log("Task 1: Start");
+
+// console.log("Task 1: Start");
+
+// const displaySomething = () => {
+//   console.log("Task 2: This is delayed by 5 seconds");
+// }
 
 // Callback function executed after 2 seconds (2000 milliseconds)
-setTimeout(function() {
-  console.log("Task 2: This is delayed by 2 seconds");
-}, 2000);
+// setTimeout(displaySomething, 5000);
 
-console.log("Task 3: End");
+// setTimeout(function() {
+//   console.log("Task 2: This is delayed by 2 seconds");
+// }, 2000);
+
+// console.log("Task 3: End");
+// const data = { user: "Nsikak", age: 30 };
 
 // function fetchData(callback) {
 //   console.log("Fetching data...");
 
 //   // Simulate a delay (e.g., fetching data from an API)
 //   setTimeout(() => {
-//     const data = { user: "Nsikak", age: 26 };
+//     const data = { user: "Musa", age: 29 };
 //     callback(data);
 //   }, 2000); // Wait 2 seconds before executing the callback
 // }
 
-// function processData(data) {
-//   console.log(`User: ${data.user}, Age: ${data.age}`);
+// console.log(data)
+// function processData(parameter) {
+//   console.log(`User: ${parameter.user}, Age: ${parameter.age}`);
+// }
+
+// function sayHello(data){
+//   console.log(data);
 // }
 
 // // Passing 'processData' as a callback to 'fetchData'
 // fetchData(processData);
+// fetchData(sayHello);
 
 
 
@@ -43,32 +61,55 @@ console.log("Task 3: End");
 // Callback Hell happens when you have too many nested callbacks, making the code hard to read and maintain.
 // Let's simulate a scenario where we need to fetch user details, process them, and save them to a database:
 
-// function getUser(callback) {
-//   setTimeout(() => {
-//       callback({ name: "Nsikak" });
-//   }, 1000);
-// }
+function getUser(callback) {
+  console.log('running getUser');
+  setTimeout(() => {
+    console.log('running getUser Callback');    
+      callback({ name: "Nsikak" });
+  }, 3000);
+}
 
-// function getAge(user, callback) {
-//   setTimeout(() => {
-//       callback({ ...user, age: 26 });
-//   }, 1000);
-// }
+function getAge(user, callback) {
+  setTimeout(() => {
+      callback({ ...user, age: 45 });
+  }, 1000);
+}
 
-// function saveToDatabase(user, callback) {
-//   setTimeout(() => {
-//       callback("User saved to database: " + JSON.stringify(user));
-//   }, 1000);
-// }
+function getLocation(user, callback) {
+  setTimeout(() => {
+    callback({ ...user, location: "Nigeria" });  // Add location to user and pass it to the callback
+  }, 1000);
+}
 
-// // This results in nested callbacks, which is known as "callback hell"
+const nameLogger = (dataObject) => {
+  console.log(dataObject); 
+  // getAge(dataObject, nameAndAgeLogger);  // Call getAge with the updated user object 
+}
+
+const nameAndAgeLogger = (dataObject) => {
+  console.log(dataObject);  
+  getLocation(dataObject, nameAndAgeAndLocationLogger);  // Call getLocation with the updated user object
+}
+
+const nameAndAgeAndLocationLogger = (dataObject) => {
+  console.log(dataObject);  
+}
+
+// This results in nested callbacks, which is known as "callback hell"
 // getUser((user) => {
+//   console.log("User fetched:", user);
 //   getAge(user, (userWithAge) => {
-//       saveToDatabase(userWithAge, (message) => {
-//           console.log(message); // Output: User saved to database: {"name":"Nsikak","age":26}
+//     console.log("Age fetched:", userWithAge);
+//     getLocation(userWithAge, (message) => {
+//           console.log(message); 
 //       });
 //   });
 // });
+
+getUser(nameLogger);
+
+
+
 
 // Callback Hell makes code harder to follow. Promises and async/await can help solve this problem.
 
@@ -119,7 +160,7 @@ console.log("Task 3: End");
 // });
 
 // const fetchAge = new Promise((resolve, reject) => {
-// setTimeout(() => resolve({ age: 26 }), 1000);
+// setTimeout(() => resolve({ age: 45 }), 1000);
 // });
 
 // fetchUser
@@ -128,7 +169,7 @@ console.log("Task 3: End");
 //   return fetchAge;
 // })
 // .then((ageData) => {
-//   console.log(ageData); // Output: { age: 26 }
+//   console.log(ageData); // Output: { age: 45 }
 // })
 // .catch((error) => {
 //   console.error(error);
@@ -153,7 +194,7 @@ console.log("Task 3: End");
 
 //       // Simulate fetching age data
 //       const age = await new Promise((resolve) => {
-//           setTimeout(() => resolve({ age: 26 }), 1000);
+//           setTimeout(() => resolve({ age: 45 }), 1000);
 //       });
 //       console.log("Age fetched:", age);
 
