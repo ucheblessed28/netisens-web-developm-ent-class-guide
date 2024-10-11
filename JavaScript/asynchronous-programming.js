@@ -206,6 +206,51 @@ doings();
 //   console.error(error);
 // });
 
+// const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// const doings = () => {
+//   wait(0)
+//     .then(() => {
+//       console.log('Decide what you want to chop');
+//       return wait(2000);
+//     })
+//     .then(() => {
+//       console.log('I want to eat Indomie noodles');
+//       return wait(3000);
+//     })
+//     .then(() => {
+//       console.log('I just bought three cartons of Indomie noodles');
+//       return wait(1000);
+//     })
+//     .then(() => {
+//       console.log('I just placed a sauce-pan on fire');
+//       return wait(1000);
+//     })
+//     .then(() => {
+//       console.log('I have added some water to the pot');
+//       return wait(4000);
+//     })
+//     .then(() => {
+//       console.log('The water is boiling');
+//       return wait(1000);
+//     })
+//     .then(() => {
+//       console.log('I successfully added my noodles to the pan');
+//       return wait(5000);
+//     })
+//     .then(() => {
+//       console.log('My Delicious pan of noodles is ready');
+//       return wait(1000);
+//     })
+//     .then(() => {
+//       console.log('I have hurriedly and successfully finished all my Noodles');
+//     })
+//     .catch((error) => console.error('Something went wrong:', error));
+// };
+
+// doings();
+
+
 
 
 // ----------------------------------------------------------------------------
@@ -240,6 +285,39 @@ doings();
 
 // fetchUserData();
 
+// const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// const doings = async () => {
+//   console.log('Decide what you want to chop');
+//   await wait(2000);
+
+//   console.log('I want to eat Indomie noodles');
+//   await wait(3000);
+
+//   console.log('I just bought three cartons of Indomie noodles');
+//   await wait(1000);
+
+//   console.log('I just placed a sauce-pan on fire');
+//   await wait(1000);
+
+//   console.log('I have added some water to the pot');
+//   await wait(4000);
+
+//   console.log('The water is boiling');
+//   await wait(1000);
+
+//   console.log('I successfully added my noodles to the pan');
+//   await wait(5000);
+
+//   console.log('My Delicious pan of noodles is ready');
+//   await wait(1000);
+
+//   console.log('I have hurriedly and successfully finished all my Noodles');
+// };
+
+// doings();
+
+
 // Explanation of async/await:
 // 1. The `async` keyword before the function makes it return a Promise.
 // 2. The `await` keyword pauses the execution until the Promise resolves or rejects.
@@ -265,6 +343,51 @@ doings();
 // }
 
 // handlePromiseWithError();
+
+const wait = (ms) => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (ms < 0) {
+      reject('Invalid delay time'); // Simulate an error condition
+    } else {
+      resolve();
+    }
+  }, ms);
+});
+
+// const doings = async () => {
+//   try {
+//     console.log('Decide what you want to chop');
+//     await wait(2000);
+
+//     console.log('I want to eat Indomie noodles');
+//     await wait(3000);
+
+//     console.log('I just bought three cartons of Indomie noodles');
+//     await wait(1000);
+
+//     console.log('I just placed a sauce-pan on fire');
+//     await wait(1000);
+
+//     console.log('I have added some water to the pot');
+//     await wait(4000);
+
+//     console.log('The water is boiling');
+//     await wait(1000);
+
+//     console.log('I successfully added my noodles to the pan');
+//     await wait(5000);
+
+//     console.log('My Delicious pan of noodles is ready');
+//     await wait(1000);
+
+//     console.log('I have hurriedly and successfully finished all my Noodles');
+//   } catch (error) {
+//     console.error('Something went wrong:', error);
+//   }
+// };
+
+// doings();
+
 
 // ----------------------------------------------------------------------------
 // Summary of Asynchronous Programming Techniques
