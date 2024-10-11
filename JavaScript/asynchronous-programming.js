@@ -109,37 +109,37 @@ const nameAndAgeAndLocationLogger = (dataObject) => {
 // getUser(nameLogger);
 
 
-const doings = () => {
-  setTimeout(() => {
-    console.log('Decide what you want to chop'); 
-    setTimeout(() => {
-      console.log('I want to eat Indomie noodles');
-      setTimeout(() => {
-        console.log('I just bought three cartons of Indomie noodles');
-        setTimeout(() => {
-          console.log('I just placed a sauce-pan on fire');
-          setTimeout(() => {
-            console.log('I have added some water to the pot');
-            setTimeout(() => {
-              console.log('The water is boiling');
-              setTimeout(() => {
-                console.log('I successfully added my noodles to the pan');
-                setTimeout(() => {
-                  console.log('My Delicious pan of noodles is ready');
-                  setTimeout(() => {
-                    console.log('I have hurriedly and successfully finished all my Noodles')
-                  }, 1000)
-                }, 5000)
-              }, 1000)
-            }, 4000)
-          }, 1000)
-        }, 1000)
-      }, 3000)
-    }, 2000)   
-  }, 0)
-}
+// const doings = () => {
+//   setTimeout(() => {
+//     console.log('Decide what you want to eat'); 
+//     setTimeout(() => {
+//       console.log('I want to eat Indomie noodles');
+//       setTimeout(() => {
+//         console.log('I just bought three cartons of Indomie noodles');
+//         setTimeout(() => {
+//           console.log('I just placed a sauce-pan on fire');
+//           setTimeout(() => {
+//             console.log('I have added some water to the pot');
+//             setTimeout(() => {
+//               console.log('The water is boiling');
+//               setTimeout(() => {
+//                 console.log('I successfully added my noodles to the pan');
+//                 setTimeout(() => {
+//                   console.log('My Delicious pan of noodles is ready');
+//                   setTimeout(() => {
+//                     console.log('I have hurriedly and successfully finished all my Noodles')
+//                   }, 1000)
+//                 }, 5000)
+//               }, 1000)
+//             }, 4000)
+//           }, 1000)
+//         }, 1000)
+//       }, 3000)
+//     }, 2000)   
+//   }, 0)
+// }
 
-doings();
+// doings();
 
 
 // Callback Hell makes code harder to follow. Promises and async/await can help solve this problem.
@@ -174,11 +174,9 @@ doings();
 //   Handling a Promise
 //   We can handle promises using .then() and .catch().
 
-// myPromise
-// .then((message) => {
+// myPromise.then((message) => {
 //   console.log(message); // Output: Operation successful!
-// })
-// .catch((error) => {
+// }).catch((error) => {
 //   console.log(error); // If failed, output: Operation failed!
 // });
 
@@ -186,13 +184,14 @@ doings();
 // Chaining Promises
 // When you have multiple asynchronous tasks, you can chain promises to handle them in order.
 
-// const fetchUser = new Promise((resolve, reject) => {
-// setTimeout(() => resolve({ user: "Nsikak" }), 1000);
-// });
+const fetchUser = new Promise((resolve, reject) => {
 
-// const fetchAge = new Promise((resolve, reject) => {
-// setTimeout(() => resolve({ age: 45 }), 1000);
-// });
+  setTimeout(() => resolve({ user: "Nsikak" }), 1000);
+});
+
+const fetchAge = new Promise((resolve, reject) => {
+  setTimeout(() => resolve({ age: 45 }), 2000);
+});
 
 // fetchUser
 // .then((userData) => {
@@ -208,10 +207,23 @@ doings();
 
 // const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+const button = document.querySelector('button');
+
+const sayClicked = (name) => {
+  alert('I was clicked by ' + name);
+}
+button.addEventListener('click', () => sayClicked('Musa'))
+
+// const wait = (ms) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => resolve(), ms)
+//   });
+// }
+
 // const doings = () => {
 //   wait(0)
 //     .then(() => {
-//       console.log('Decide what you want to chop');
+//       console.log('Decide what you want to eat');
 //       return wait(2000);
 //     })
 //     .then(() => {
@@ -354,37 +366,37 @@ const wait = (ms) => new Promise((resolve, reject) => {
   }, ms);
 });
 
-// const doings = async () => {
-//   try {
-//     console.log('Decide what you want to chop');
-//     await wait(2000);
+const doings = async () => {
+  try {
+    console.log('Decide what you want to chop');
+    await wait(2000);
 
-//     console.log('I want to eat Indomie noodles');
-//     await wait(3000);
+    console.log('I want to eat Indomie noodles');
+    await wait(3000);
 
-//     console.log('I just bought three cartons of Indomie noodles');
-//     await wait(1000);
+    console.log('I just bought three cartons of Indomie noodles');
+    await wait(1000);
 
-//     console.log('I just placed a sauce-pan on fire');
-//     await wait(1000);
+    console.log('I just placed a sauce-pan on fire');
+    await wait(1000);
 
-//     console.log('I have added some water to the pot');
-//     await wait(4000);
+    console.log('I have added some water to the pot');
+    await wait(4000);
 
-//     console.log('The water is boiling');
-//     await wait(1000);
+    console.log('The water is boiling');
+    await wait(1000);
 
-//     console.log('I successfully added my noodles to the pan');
-//     await wait(5000);
+    console.log('I successfully added my noodles to the pan');
+    await wait(5000);
 
-//     console.log('My Delicious pan of noodles is ready');
-//     await wait(1000);
+    console.log('My Delicious pan of noodles is ready');
+    await wait(1000);
 
-//     console.log('I have hurriedly and successfully finished all my Noodles');
-//   } catch (error) {
-//     console.error('Something went wrong:', error);
-//   }
-// };
+    console.log('I have hurriedly and successfully finished all my Noodles');
+  } catch (error) {
+    console.error('Something went wrong:', error);
+  }
+};
 
 // doings();
 
@@ -398,3 +410,34 @@ const wait = (ms) => new Promise((resolve, reject) => {
 //    It also allows us to use try...catch for error handling instead of .catch() with Promises.
 
 // Always choose the right tool depending on the complexity of the async operations you're handling!
+
+
+const productsContainer = document.getElementById('products-container');
+
+// Fetching a list of products from FakeStore API
+fetch('https://fakestoreapi.com/products')
+  .then((response) => response.json())
+  .then((products) => {
+    console.log('FakeStore API Products:', products);
+    products.forEach((product) => {
+      const { category, description, image, price, title} = product;
+      productsContainer.innerHTML += `
+      <div>
+            <h1>Title: ${title}</h1>
+            <h2>Category: ${category}</h2>
+            <img src=${image} alt=${title}>
+            <p>Price: ${price}</p>
+            <p>Description: ${description}</p>
+            <button>Add to Cart</button>
+        </div>
+    `
+    })
+    
+  })
+  .catch((error) => console.error('Error:', error));
+
+// Fetching a single product from FakeStore API
+fetch('https://fakestoreapi.com/products/1')
+  .then(response => response.json())
+  .then(product => console.log('FakeStore API Single Product:', product))
+  .catch(error => console.error('Error:', error));
