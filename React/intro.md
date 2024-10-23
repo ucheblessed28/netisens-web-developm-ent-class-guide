@@ -1,6 +1,6 @@
-Introduction to JavaScript Frameworks and Libraries
+#Introduction to JavaScript Frameworks and Libraries
 
-What is a Framework vs. Library?
+What is a Framework vs. a Library?
 
 Library: A collection of prewritten code that you can call to perform certain tasks. React is a library.
 
